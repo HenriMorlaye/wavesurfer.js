@@ -129,7 +129,9 @@ WaveSurfer.Drawer = {
     },
 
     getWidth: function () {
-        return Math.round(this.container.clientWidth * this.params.pixelRatio);
+        var paramWidth = this.params.containerWidth || 0
+        var width      = Math.max(this.container.scrollWidth, this.container.offsetWidth, this.container.clientWidth, paramWidth);
+        return Math.round(width * this.params.pixelRatio);
     },
 
     setWidth: function (width) {
